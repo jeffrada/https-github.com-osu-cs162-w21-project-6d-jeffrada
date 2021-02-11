@@ -12,10 +12,10 @@ def row_puzzle(row, index = 0, shifts_taken = [], indexes_used = []):
 
     if (index + shiftAmount <= len(row) - 1 and (index, shiftAmount) not in shifts_taken and index + shiftAmount not in indexes_used):
         indexes_used.append(index + shiftAmount)
-        shifts_taken.append(index, shiftAmount)
+        shifts_taken.append((index, shiftAmount))
         return row_puzzle(row, index + shiftAmount, shifts_taken, indexes_used)
     elif(index - shiftAmount >= 0) and (index, -shiftAmount) not in shifts_taken:
-        shifts_taken.append(index, -shiftAmount)
+        shifts_taken.append((index, -shiftAmount))
         return row_puzzle(row, index - shiftAmount, shifts_taken, indexes_used)
     else:
         return False
